@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Dyanmite-Runner-Java">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/Dyanmite-Runner-Java.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="javarunner-1.0-bot">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/javarunner-1.0-bot.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
