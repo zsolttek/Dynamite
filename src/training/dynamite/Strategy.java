@@ -73,11 +73,11 @@ public class Strategy {
             myDynamites -= 1;
         }
 
-        draw = gamestate.getRounds().get(lastIdx).getP1() == opponent.getLastMove();
+        draw = (gamestate.getRounds().get(lastIdx).getP1() == opponent.getLastMove());
 
         if(gamestate.getRounds().size() >= 2) {
-            drawTwice = gamestate.getRounds().get(lastIdx).getP1() == opponent.getLastMove()
-                    && gamestate.getRounds().get(lastIdx - 1).getP1() == gamestate.getRounds().get(lastIdx - 1).getP2();
+            drawTwice = (gamestate.getRounds().get(lastIdx).getP1() == opponent.getLastMove()
+                    && gamestate.getRounds().get(lastIdx - 1).getP1() == gamestate.getRounds().get(lastIdx - 1).getP2());
         }
 
     }
@@ -132,7 +132,6 @@ public class Strategy {
     public Move generateAnyMoveSafely() {
         Move move;
         Move move2;
-        int idx = generateRandomNumber(5);
         int random;
         boolean flag = true;
         boolean flag2 = true;
@@ -140,23 +139,22 @@ public class Strategy {
         if (myDynamites > 0) {
             random = generateRandomNumber(20);
             if ((random >= 10 && random <= 13) && opponent.getDynamite() > 0) {
-                return allMoves.get(idx - 1); // return all
+                return allMoves.get(allMoves.size() - 1); // return all
             } else if(opponent.getDynamite() <= 0) {
-                return allMoves.get(idx - 2); // exclude water
+                return allMoves.get(allMoves.size() - 2); // exclude water
             }
         } else {  // no dynamite left for me
             if (opponent.getDynamite() > 0) { //include water only if opponent has dynamite
-                move = move = allMoves.get(idx - 1);
+                move = allMoves.get(allMoves.size() - 1);
                 while (flag) {
-                    move = allMoves.get(idx - 1);
+                    move = allMoves.get(allMoves.size() - 1);
                     if (move != Move.D) {
                         flag = false;
                     }
                 }
-
                 if(move == Move.W) {
                     if(generateRandomNumber(10) != 1 || generateRandomNumber(10) != 2) {
-                        return move = generateRandomBasicMove();
+                        return generateRandomBasicMove();
                     }
                 } else {
                     return move;

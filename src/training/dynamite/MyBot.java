@@ -42,7 +42,7 @@ public class MyBot implements Bot {
 
 
         if(currentMove == Move.D && strategy.getMyDynamites() == 0){
-            currentMove = strategy.generateRandomBasicMove();
+            currentMove = strategy.generateAnyMoveSafely();
         }
 
         return currentMove;
@@ -52,14 +52,34 @@ public class MyBot implements Bot {
     //===========================================================================================
 
     private Move play(Gamestate gamestate) {
-        if(strategy.isDraw()) {
-            return currentMove = Move.D;
-        }
+
+//        if(strategy.isDrawTwice()) {
+//            if(opponent.getLastMove() == Move.D) {
+//                return currentMove = Move.W;
+//            } else if(opponent.getLastMove() == Move.W) {
+//                return strategy.generateRandomBasicMove();
+//            } else {
+//                return strategy.generateRandomBasicMove();
+//            }
+//        }
+//
+//        if(strategy.isDraw()) {
+//            int number = strategy.generateRandomNumber(6);
+//            if(number > 2) {
+//                return currentMove = Move.D;
+//            } else {
+//                return currentMove = Move.W;
+//            }
+//        }
 
         if(strategy.isDrawTwice()) {
             if(opponent.getLastMove() == Move.D) {
                 return currentMove = Move.W;
             }
+        }
+
+        if(strategy.isDraw()) {
+            return currentMove = Move.D;
         }
 
 
